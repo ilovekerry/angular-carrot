@@ -1,0 +1,15 @@
+.form-group>select+select{
+  margin-top:15px;
+}
+.img-input{
+  display: none;
+}
+.img-label{
+  display: block;
+}
+.btn.disabled, .btn:disabled {
+  cursor:not-allowed;
+}
+.img-preview{
+  max-width: 100%;
+}

@@ -1,0 +1,29 @@
+.top-menu-header{
+  float: left;
+  height: 50px;
+  padding: 15px 37px;
+  font-size: 18px;
+  line-height: 20px;
+  color: white;
+  border-bottom: solid rgb(74, 95, 108) 1px;
+  width: 250px;
+  font-weight: 700;
+  background-color: rgb(35, 42, 58);
+}
+.top-menu-content{
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 0 6px #e3e2e2;
+  border-color: #e3e2e2;
+  min-height: 50px;
+  text-align: right;
+  a{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    padding: 15px;
+    height: 50px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}

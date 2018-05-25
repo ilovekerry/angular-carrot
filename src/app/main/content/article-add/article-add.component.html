@@ -1,0 +1,106 @@
+<div class="card">
+  <div class="card-header" *ngIf="!articleId">Article新增</div>
+  <div class="card-header" *ngIf="articleId">Article编辑</div>
+  <div class="card-body">
+    <form action="">
+      <div class="form-group">
+        <label for="title">标题名称</label>
+        <input class="form-control" name="title" id="title" type="text"  [(ngModel)]="params.title">
+      </div>
+      <div class="form-group">
+        <label for="type">类型</label>
+        <select name="type" id="type" class="form-control" [(ngModel)]="params.type">
+          <option value="">请选择</option>
+          <option *ngFor="let option of typeOptions" [value]="option.id">{{option.name}}</option>
+        </select>
+        <select name="industry" id="industry"  class="form-control" [(ngModel)]="params.industry" *ngIf="params.type == '3'">
+          <option value="">请选择</option>
+          <option *ngFor="let option of subTypeOptions" [value]="option.id">{{option.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>说明</label>
+        <!--<input class="form-control" name="content" id="content" type="text" [(ngModel)]="params.content">-->
+        <!--<quill-editor [(ngModel)]="params.content" [ngModelOptions]="{standalone: true}"></quill-editor>-->
+        <ueditor  [(ngModel)]="params.content"
+                  [ngModelOptions]="{standalone: true}"
+                  [loadingTip]="''"
+                  [config]="ueditorConfig"
+        ></ueditor>
+      </div>
+      <div class="form-group">
+        <label for="url">跳转链接</label>
+        <input class="form-control" name="url" id="url" type="text" [(ngModel)]="params.url">
+      </div>
+      <div class="form-group">
+        <label class="img-label">配图</label>
+        <!--<input class="form-control" id="img" name="img" type="text"  [(ngModel)]="params.img">-->
+        <label for="img" class="btn btn-info">选择文件</label>
+        <input type="file" id="img" class="img-input" (change)="onChange($event)" ng2FileSelect [uploader]="uploader" />
+        <div class="col-md-9" style="margin-bottom: 40px">
+          <p><img *ngIf="params.img" class="img-preview" src="{{params.img}}" alt="配图预览"></p>
+          <table class="table">
+            <thead>
+            <tr>
+              <th width="50%">名称</th>
+              <th>大小</th>
+              <th>进度</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of uploader.queue">
+              <td><strong>{{ item?.file?.name }}</strong></td>
+              <td *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2-2' | imageSize }} MB</td>
+              <td *ngIf="uploader.options.isHTML5">
+                <div class="progress" style="margin-bottom: 0;">
+                  <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                </div>
+              </td>
+              <td class="text-center">
+                <span *ngIf="item.isSuccess"><i class="fa fa-check"></i></span>
+                <span *ngIf="item.isCancel"><i class="fa fa-ban"></i></span>
+                <span *ngIf="item.isError"><i class="fa fa-times"></i></span>
+              </td>
+              <td nowrap>
+                <button type="button" class="btn btn-success btn-sm"
+                        (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                  <span class="fa fa-upload"></span> 上传
+                </button>
+                <button type="button" class="btn btn-danger btn-sm"
+                        (click)="params.img='';item.remove()">
+                  <span class="fa fa-trash"></span> 删除
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+          </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success"
+                [disabled]="!(params.img&&params.title&&params.content&&params.url&&((params.type == 3&&params.industry)||(params.type && (params.type != 3))))"
+                (click)="postArticle(params,2)"
+        >立即上线</button>
+        <button class="btn btn-success"
+                [disabled]="!(params.img&&params.title&&params.content&&params.url&&((params.type == 3&&params.industry)||(params.type && (params.type != 3))))"
+                (click)="postArticle(params,1)"
+        >存为草稿</button>
+        <button class="btn bg-white border-secondary pull-right" (click)="cancel()">取消</button>
+      </div>
+    </form>
+  </div>
+</div>
+<ng-template #addSucceedTemplate>
+  <div class="modal-header">
+    <h3 class="modal-title">提示</h3>
+  </div>
+  <div class="modal-body text-center">
+    <p>操作成功</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()" >确定</button>
+  </div>
+</ng-template>

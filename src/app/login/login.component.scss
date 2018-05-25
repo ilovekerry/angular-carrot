@@ -1,0 +1,29 @@
+.login-screen{
+  height:100%;
+  width:100%;
+  background-color: #222;
+  .login-form-container{
+    position:absolute;
+    width:400px;
+    height:450px;
+    left:50%;
+    top:50%;
+    margin-left:-200px;
+    margin-top:-225px;
+    padding:30px 60px;
+    background:#333;
+    color:#fff;
+    .sys-title{
+      text-align: center;
+      font-size: 38px;
+      line-height:150px;
+      margin:0;
+      font-weight: 700;
+    }
+  }
+}
+.login-info{
+  position: relative;
+  bottom: 8px;
+  color: hotpink;
+}

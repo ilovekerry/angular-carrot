@@ -1,0 +1,32 @@
+[
+  {
+    "name":"信息管理",
+    "children":[
+      {
+        "name":"公司列表"
+      },
+      {
+        "name":"职位列表"
+      }
+    ]
+  },
+  {
+    "name":"Article管理",
+    "children":[
+      {
+        "name":"Article列表"
+      },
+      {
+        "name":"文章管理"
+      }
+    ]
+  },
+  {
+    "name":"用户管理",
+    "children":[
+      {
+        "name":"用户列表"
+      }
+    ]
+  }
+]

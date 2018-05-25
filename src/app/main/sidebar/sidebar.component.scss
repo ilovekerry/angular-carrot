@@ -1,0 +1,41 @@
+.sidebar{
+  float: left;
+  width: 250px;
+  padding-top: 28px;
+  padding-bottom: 3000px;
+  margin-bottom: -3000px;
+  background-color: rgb(35, 42, 58);
+  color: #fff;
+  font-size: 16px;
+  a{
+    cursor:pointer;
+    color:#fff;
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+  .sidebar-li{
+    position: relative;
+    .sidebar-link{
+      padding:10px 15px;
+      display: block;
+      position: relative;
+    }
+    .fa{
+      padding:0 10px;
+    }
+    span{
+      top: 14px;
+      right: 10px;
+      position: absolute;
+    }
+  };
+  .al-sidebar-link{
+    position: relative;
+    display: block;
+    padding: 10px 15px 10px 67px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "/carrots-admin-ajax":{
+    "target":"http://120.92.4.89:80",
+    "secure":false,
+    "pathRewrite":{
+      "^/carrots-admin-ajax":""
+    },
+    "changeOrigin":true,
+    "logLevel":"debug"
+  }
+}
