@@ -1,27 +1,20 @@
 # Carrots
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+基于angular5.2.0和Ngx-bootstrap搭建的后台管理系统Demo.
 
-## Development server
+## 运行方法
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+运行npm install（cnpm install会导致bootstrap样式失效）安装相关依赖文件，安装成功后npm start启动开发服务器查看。
 
-## Code scaffolding
+## 注意事项
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+css预处理器采用了sass,如果没有安装sass，请先安装sass.
 
-## Build
+## 项目概览
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+采用AngularCli 1.7.4搭建开发环境
+css框架使用了bootstrap 4.1.1
+组件库类选用了ngx-bootstrap 2.0.5 选用了其中的日期选择组件,分页组件，模态框组件
+图片上传组件使用的是ng2-file-upload 1.3.0
+富文本编辑器组件使用的是ngx-ueditor 1.1.0
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
