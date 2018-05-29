@@ -12,13 +12,8 @@
   
   ## 项目概览
   
- -采用AngularCli 1.7.4搭建开发环境
- -css框架使用了bootstrap 4.1.1
- -组件库类选用了ngx-bootstrap 2.0.5 选用了其中的日期选择组件,分页组件，模态框组件
- -图片上传组件使用的是ng2-file-upload 1.3.0
- -富文本编辑器组件使用的是ngx-ueditor 1.1.0
- +1. 采用AngularCli 1.7.4搭建开发环境
- +2. css框架使用了bootstrap 4.1.1
- +3. 组件库类选用了ngx-bootstrap 2.0.5 选用了其中的日期选择组件,分页组件，模态框组件
- +4. 图片上传组件使用的是ng2-file-upload 1.3.0
- +5. 富文本编辑器组件使用的是ngx-ueditor 1.1.0
+ 1. 采用AngularCli 1.7.4搭建开发环境
+ 2. css框架使用了bootstrap 4.1.1
+ 3. 组件库类选用了ngx-bootstrap 2.0.5 选用了其中的日期选择组件,分页组件，模态框组件
+ 4. 图片上传组件使用的是ng2-file-upload 1.3.0
+ 5. 富文本编辑器组件使用的是ngx-ueditor 1.1.0
