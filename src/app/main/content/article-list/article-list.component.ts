@@ -26,6 +26,7 @@ export class ArticleListComponent implements OnInit {
   public rotate = true;
   public maxSize = 5;
   public total: number;
+  public itemsPerPage: number;
   // modal
   public bsModalRef: BsModalRef;
   public modalItem: any;
@@ -61,6 +62,7 @@ export class ArticleListComponent implements OnInit {
       .subscribe( res => {
         this.tableData = res.data.articleList;
         this.total = res.data.total;
+        this.itemsPerPage = this.params.size;
       });
   }
   clear(params: any): void {
@@ -79,13 +81,17 @@ export class ArticleListComponent implements OnInit {
     }
     this.router.navigate(['main/articleList'], {queryParams: searchParams});
   }
-  pageChanged(event: any): void {
+  pageChanged(event: any, size: number): void {
       let searchParams = <any>{};
       searchParams = Object.assign({}, this.routeParams);
-      searchParams.page = event.page;
+      if (size) {
+        searchParams.size = size;
+        searchParams.page = 1;
+      } else {
+        searchParams.page = event.page;
+      }
       this.router.navigate(['main/articleList'], {queryParams: searchParams});
   }
-  // Todo 增加分页size功能，尝试做了，但是失败了。本身这个分页插件是不支持size功能的，建议换一个插件或者自己写
   deleteArticle(params: number): void {
     this.commonService.deleteArticle(params)
       .subscribe( res => {

@@ -100,6 +100,10 @@
 </div>
 <!--分页-->
 <div class="page-wrapper">
+  <div class="size-wrapper">
+    <span>每页显示<input type="text" class="number" [(ngModel)]="params.size">条</span>
+    <button class="btn change-size-button" (click)="pageChanged($event, params.size)">确定</button>
+  </div>
   <pagination
     [boundaryLinks]="true"
     [totalItems]="total"
@@ -111,7 +115,7 @@
     [rotate]="rotate"
     [maxSize]="maxSize"
     [(ngModel)]="params.page"
-    [itemsPerPage]="10"
+    [itemsPerPage]="itemsPerPage"
     (pageChanged)="pageChanged($event)"
   >
   </pagination>

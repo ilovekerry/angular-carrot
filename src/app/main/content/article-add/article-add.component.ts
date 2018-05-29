@@ -79,7 +79,8 @@ export class ArticleAddComponent implements OnInit {
   }
   // 新增或者编辑文章
   postArticle(params: any, status: number): void {
-    if (params.type !== 3) {
+    if (params.type != 3) {
+      console.log(params.type);
       delete params.industry;
     }
     params.status = status;
