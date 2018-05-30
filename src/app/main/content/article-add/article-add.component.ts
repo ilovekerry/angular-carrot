@@ -70,6 +70,14 @@ export class ArticleAddComponent implements OnInit {
         .subscribe( res => {
           if (res.code === 0) {
             this.params = res.data.article;
+            // 下面这两个String函数的原因是编辑的时候判断会发现参数是0，会被当成false,解决办法：
+            // 1，像下面那样打补丁转类型，缺点就是维护起来麻烦，后面越来越麻烦。
+            // 2.在开始项目的时候就定义常量id为数字0，而不是字符串0，不然到后面想改成数字0就会牵扯到其他东西，然后判断必填条件可能也要改
+            // 3.和后端约定最好各种选项不要从0开始，从1开始就什么问题都没了。
+            this.params.type = String(res.data.article.type);
+            if (this.params.type === '3') {
+              this.params.industry = String(res.data.article.industry);
+            }
           }
         });
     } else {
@@ -80,7 +88,6 @@ export class ArticleAddComponent implements OnInit {
   // 新增或者编辑文章
   postArticle(params: any, status: number): void {
     if (params.type != 3) {
-      console.log(params.type);
       delete params.industry;
     }
     params.status = status;
