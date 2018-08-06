@@ -14,6 +14,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { CommonService } from './common/service/common.service';
 // import { ArticleService } from './common/service/common.service';
 
+// httpInterceptor
+import { httpInterceptorProviders } from './http-interceptors/index';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { CommonService } from './common/service/common.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [CommonService],
+  providers: [CommonService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
